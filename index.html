@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Genius Olympiad (NGO) — Official Website</title>
+<meta name="description" content="National Genius Olympiad — a national-level competition in Mathematics and Science for students of Classes 5 to 12, designed to recognize young minds and empower future leaders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Roboto+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#C21F26;
+    --red-dark:#9A1419;
+    --navy:#122A57;
+    --navy-dark:#0B1D3D;
+    --gold:#F0A500;
+    --bg:#EFEFEF;
+    --panel:#FFFFFF;
+    --line:#DADFE6;
+    --text:#333333;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Noto Sans',Arial,sans-serif;color:var(--text);background:var(--bg);font-size:14.5px;line-height:1.6;}
+  h1,h2,h3,h4{font-family:'Roboto Condensed',Arial,sans-serif;font-weight:800;color:var(--navy);margin:0 0 .4em;text-transform:uppercase;letter-spacing:.3px;}
+  a{color:var(--navy);text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px;}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;font-weight:700;}
+  .skip-link:focus{left:12px;top:12px;}
+  button{font-family:inherit;}
+
+  /* ===== Top bar ===== */
+  .topbar{background:var(--navy-dark);color:#C7D0DE;font-size:12px;}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:6px 16px;flex-wrap:wrap;gap:6px;}
+  .topbar a{color:#C7D0DE;margin-right:14px;}
+  .topbar a:hover{color:var(--gold);}
+  .topbar .search-mini{display:flex;align-items:center;background:#1B355E;border-radius:3px;overflow:hidden;}
+  .search-mini input{background:transparent;border:none;color:#fff;padding:6px 8px;font-size:12px;width:120px;}
+  .search-mini button{background:var(--red);color:#fff;border:none;padding:6px 10px;cursor:pointer;font-size:12px;}
+
+  /* ===== Header ===== */
+  header.site-header{background:#fff;border-bottom:4px solid var(--red);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:16px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .seal{width:56px;height:56px;flex:none;}
+  .brand-text .name{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);text-transform:none;}
+  .brand-text .sub{font-size:.72rem;letter-spacing:1.5px;color:var(--red);text-transform:uppercase;font-weight:700;margin-top:1px;}
+  .header-cta{display:flex;gap:8px;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:10px 16px;border-radius:3px;font-weight:700;text-decoration:none;font-size:.8rem;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border:none;}
+  .btn-red{background:var(--red);color:#fff;}
+  .btn-red:hover{background:var(--red-dark);}
+  .btn-navy{background:var(--navy);color:#fff;}
+  .btn-navy:hover{background:var(--navy-dark);}
+  .btn-outline{background:#fff;color:var(--navy);border:1px solid var(--navy);}
+
+  /* ===== Nav ===== */
+  nav.main-nav{background:var(--navy);}
+  nav.main-nav .wrap{display:flex;flex-wrap:wrap;}
+  nav.main-nav a{color:#fff;text-decoration:none;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.4px;padding:13px 16px;display:block;border-right:1px solid rgba(255,255,255,.1);}
+  nav.main-nav a:hover, nav.main-nav a:focus{background:var(--red);}
+  .menu-btn{display:none;background:var(--navy);color:#fff;border:none;padding:10px 14px;width:100%;text-align:left;font-weight:700;text-transform:uppercase;font-size:.82rem;}
+
+  /* ===== Stats strip ===== */
+  .stats-strip{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:26px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;text-align:center;}
+  .stat-box{color:#fff;padding:10px;}
+  .stat-box .icon{width:38px;height:38px;margin:0 auto 8px;color:var(--gold);}
+  .stat-box .num{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;}
+  .stat-box .lbl{font-size:.72rem;color:#AEBBD1;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+  .align-note{text-align:center;color:#fff;background:var(--red);font-size:.82rem;font-weight:700;padding:9px 16px;letter-spacing:.2px;}
+
+  /* ===== Section shell ===== */
+  section{padding:38px 0;scroll-margin-top:90px;}
+  main [id]{scroll-margin-top:90px;}
+  .sec-title{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+  .sec-title h2{font-size:1.35rem;margin:0;white-space:nowrap;}
+  .sec-title .rule{flex:1;height:3px;background:var(--red);}
+  .sec-sub{color:var(--muted);font-size:.9rem;margin:-14px 0 22px;}
+
+  /* ===== Card grid (Latest Updates style) ===== */
+  .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .u-card{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;transition:box-shadow .15s, transform .15s;}
+  .u-card:hover{box-shadow:0 6px 16px rgba(0,0,0,.14);transform:translateY(-2px);}
+  .u-thumb{height:96px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;}
+  .u-thumb svg{width:40px;height:40px;}
+  .u-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.15));}
+  .u-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;}
+  .u-body h3{font-size:.92rem;margin-bottom:6px;text-transform:none;color:var(--navy);}
+  .u-body p{font-size:.82rem;color:var(--muted);margin:0 0 12px;flex:1;}
+  .u-body .readmore{font-size:.76rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.4px;}
+  .u-body .readmore:hover{text-decoration:underline;}
+
+  .t-blue{background:linear-gradient(135deg,#1B3D6D,#0B1D3D);}
+  .t-red{background:linear-gradient(135deg,#D6323A,#8F1418);}
+  .t-gold{background:linear-gradient(135deg,#E2A519,#B77E0B);}
+  .t-teal{background:linear-gradient(135deg,#0E7C6B,#0A544A);}
+
+  /* ===== Subjects (two-olympiad-block style) ===== */
+  .subject-blocks{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .subj-block{background:var(--panel);border:1px solid var(--line);border-radius:3px;display:grid;grid-template-columns:130px 1fr;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .subj-logo{display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.6rem;}
+  .subj-logo.math{background:linear-gradient(160deg,var(--navy),#1B3D6D);}
+  .subj-logo.sci{background:linear-gradient(160deg,#0E7C6B,#0A544A);}
+  .subj-content{padding:16px 18px;}
+  .subj-content h3{font-size:1rem;margin-bottom:6px;}
+  .subj-content ul{margin:0 0 10px;padding-left:18px;font-size:.83rem;color:var(--text);columns:2;column-gap:14px;}
+  .subj-content li{margin-bottom:4px;break-inside:avoid;}
+  .subj-content a{font-size:.78rem;font-weight:700;color:var(--red);text-transform:uppercase;}
+
+  /* ===== Eligibility table box ===== */
+  .box{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:20px 22px;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  table.data{width:100%;border-collapse:collapse;font-size:.85rem;}
+  table.data th,table.data td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;}
+  table.data th{background:var(--navy);color:#fff;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;}
+  table.data td.grp{color:var(--red);font-weight:700;}
+
+  /* ===== Pattern strip ===== */
+  .pattern-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .pattern-box{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:3px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .pattern-box .val{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.25rem;color:var(--navy);}
+  .pattern-box .lbl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:4px;}
+
+  /* ===== Dates timeline ===== */
+  .dates-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .date-box{padding:18px 14px;border-right:1px solid var(--line);text-align:center;}
+  .date-box:last-child{border-right:none;}
+  .date-box .d-tag{font-size:.68rem;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+  .date-box h4{font-size:.85rem;margin:6px 0 4px;}
+  .date-box p{font-size:.76rem;color:var(--muted);margin:0;}
+
+  /* ===== Fee table ===== */
+  table.fee{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:.87rem;}
+  table.fee th,table.fee td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--line);}
+  table.fee thead th{background:var(--red);color:#fff;font-size:.72rem;letter-spacing:.5px;text-transform:uppercase;}
+  table.fee td.amt{font-weight:700;color:var(--navy);}
+  .fee-note{font-size:.78rem;color:var(--muted);margin-top:8px;}
+
+  /* ===== Testimonials ===== */
+  .testi-wrap{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:8px;}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .testi{padding:20px;border-right:1px solid var(--line);}
+  .testi:last-child{border-right:none;}
+  .testi .quote{font-size:.85rem;color:var(--text);margin-bottom:14px;position:relative;padding-left:18px;}
+  .testi .quote::before{content:"\201C";position:absolute;left:-2px;top:-6px;font-size:1.8rem;color:var(--gold);font-family:Georgia,serif;}
+  .testi .who{display:flex;align-items:center;gap:10px;}
+  .testi .avatar{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex:none;}
+  .testi .who-name{font-size:.82rem;font-weight:700;color:var(--navy);}
+  .testi .who-role{font-size:.72rem;color:var(--muted);}
+
+  /* ===== Update zone (mixed grid) ===== */
+  .zone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+
+  /* ===== How to register steps ===== */
+  .steps-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .step-box{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:18px 16px;box-shadow:0 1px 3px rgba(0,0,0,.08);position:relative;padding-top:38px;}
+  .step-box .num{position:absolute;top:-2px;left:-2px;background:var(--red);color:#fff;font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:.85rem;padding:5px 12px;border-radius:0 0 6px 0;}
+  .step-box h4{font-size:.88rem;margin-bottom:4px;}
+  .step-box p{font-size:.8rem;color:var(--muted);margin:0;}
+
+  /* ===== FAQ ===== */
+  .faq{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:15px 18px;font-weight:700;color:var(--navy);font-size:.9rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px;}
+  .faq-q:hover{background:#F7F7F7;}
+  .faq-q .plus{color:var(--red);font-size:1.15rem;font-weight:900;flex:none;transition:transform .2s;}
+  .faq-item[data-open="true"] .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-a p{padding:0 18px 16px;color:var(--muted);font-size:.85rem;margin:0;}
+
+  /* ===== CTA banner ===== */
+  .cta-banner{background:linear-gradient(120deg,var(--red),var(--red-dark));color:#fff;text-align:center;padding:34px 20px;border-radius:3px;}
+  .cta-banner h2{color:#fff;margin-bottom:8px;}
+  .cta-banner p{color:#FDE3E4;margin:0 0 18px;font-size:.9rem;}
+
+  /* ===== Contact ===== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .contact-form{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  .contact-form label{display:block;font-size:.75rem;font-weight:700;color:var(--navy);margin:12px 0 5px;text-transform:uppercase;letter-spacing:.4px;}
+  .contact-form label:first-child{margin-top:0;}
+  .contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:3px;font-family:inherit;font-size:.87rem;background:#FAFAFA;}
+  .contact-form textarea{min-height:80px;resize:vertical;}
+  .contact-form .btn{margin-top:16px;width:100%;text-align:center;}
+
+  /* ===== Footer ===== */
+  footer{background:var(--navy-dark);color:#B7C1D4;padding:0;font-size:.85rem;margin-top:20px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:28px;padding:38px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-grid h5{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;font-family:'Roboto Condensed',sans-serif;}
+  .footer-grid ul{list-style:none;padding:0;margin:0;}
+  .footer-grid li{margin-bottom:8px;}
+  .footer-grid a{color:#B7C1D4;font-size:.82rem;}
+  .footer-grid a:hover{color:var(--gold);}
+  .footer-grid p{font-size:.8rem;line-height:1.7;}
+  .social-row{display:flex;gap:8px;margin-top:10px;}
+  .social-row a{width:30px;height:30px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:700;}
+  .social-row a:hover{background:var(--red);}
+  .footer-bottom{padding:14px 0;font-size:.76rem;color:#7E8CA3;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+
+  /* ===== Responsive ===== */
+  @media (max-width:980px){
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .subject-blocks,.two-col,.contact-grid{grid-template-columns:1fr;}
+    .stats-grid,.pattern-strip,.steps-strip{grid-template-columns:1fr 1fr;}
+    .dates-strip,.zone-grid,.testi-grid{grid-template-columns:1fr;}
+    .date-box,.testi{border-right:none;border-bottom:1px solid var(--line);}
+    nav.main-nav .wrap{display:none;flex-direction:column;}
+    nav.main-nav.open .wrap{display:flex;}
+    .menu-btn{display:block;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .card-grid,.stats-grid,.pattern-strip,.steps-strip,.footer-grid{grid-template-columns:1fr;}
+    .subj-block{grid-template-columns:1fr;}
+    .subj-logo{padding:14px 0;}
+    .header-inner{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ===== Top bar ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div>
+      <a href="#dates">Exam Schedule</a>
+      <a href="#registration">Download Registration Form</a>
+      <a href="#registration">Register Your School</a>
+      <a href="#contact">Become Coordinator</a>
+      <a href="#contact">Feedback</a>
+    </div>
+    <div class="search-mini" role="search">
+      <input type="text" placeholder="Search this site" aria-label="Search">
+      <button type="button">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" fill="#122A57"/>
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#C21F26" stroke-width="3"/>
+        <circle cx="50" cy="50" r="38" fill="none" stroke="#F0A500" stroke-width="1"/>
+        <path d="M50 22 L54 34 L67 34 L57 42 L61 54 L50 46 L39 54 L43 42 L33 34 L46 34 Z" fill="#F0A500"/>
+        <text x="50" y="70" text-anchor="middle" font-family="Roboto Condensed, sans-serif" font-size="12" fill="#fff" font-weight="800">NGO</text>
+      </svg>
+      <div class="brand-text">
+        <div class="name">National Genius Olympiad</div>
+        <div class="sub">Think · Solve · Succeed</div>
+      </div>
+    </div>
+    <div class="header-cta">
+      <a href="#registration" class="btn btn-red">Online Registration</a>
+      <a href="#contact" class="btn btn-outline">Register Your School</a>
+    </div>
+  </div>
+</header>
+
+<nav class="main-nav" id="mainNav" aria-label="Primary">
+  <button class="menu-btn" onclick="document.getElementById('mainNav').classList.toggle('open')">&#9776; Menu</button>
+  <div class="wrap">
+    <a href="#about">About NGO</a>
+    <a href="#subjects">Mathematics</a>
+    <a href="#subjects">Science</a>
+    <a href="#eligibility">Eligibility</a>
+    <a href="#pattern">Exam Pattern</a>
+    <a href="#rewards">Rewards</a>
+    <a href="#dates">Important Dates</a>
+    <a href="#fee">Registration Fee</a>
+    <a href="#faq">FAQs</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ===== Stats strip ===== -->
+<div class="stats-strip">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-box">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5L12 2z"/></svg>
+        <div class="num">01</div><div class="lbl">Year of Trust</div>
+      </div>
+      <div class="stat-box">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6"/></svg>
+        <div class="num">Pan-India</div><div class="lbl">Reach</div>
+      </div>
+      <div class="stat-box">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
+        <div class="num">28</div><div class="lbl">States &amp; UTs</div>
+      </div>
+      <div class="stat-box">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <div class="num">2</div><div class="lbl">Olympiad Subjects</div>
+      </div>
+      <div class="stat-box">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5zm4 2v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+        <div class="num">5–12</div><div class="lbl">Eligible Classes</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="align-note">A National Level Competition to Recognize Young Minds and Empower Future Leaders</div>
+
+<main id="main">
+
+  <!-- ===== About ===== -->
+  <section id="about" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>About the Olympiad</h2><div class="rule"></div></div>
+      <div class="two-col">
+        <div>
+          <p>The National Genius Olympiad (NGO) is a national-level competition designed to recognize young minds and empower future leaders. Built around the philosophy of <strong>Discover · Develop · Excel</strong>, it gives students a genuine platform to test what they know and how they think.</p>
+          <p>The Olympiad is designed to go beyond rote memorisation — testing conceptual understanding, logical thinking and problem-solving skills through application and concept-based questions prepared by a panel of subject-matter educators.</p>
+          <p>Open to students of Classes 5 to 12 from all recognized schools across India, in Mathematics and Science, with a certificate for every participant and a detailed performance and rank report for every candidate.</p>
+        </div>
+        <div class="box">
+          <h3 style="font-size:1rem;margin-bottom:10px;">Why Participate</h3>
+          <ul style="margin:0;padding-left:18px;font-size:.87rem;color:var(--text);">
+            <li style="margin-bottom:8px;">Enhance academic excellence</li>
+            <li style="margin-bottom:8px;">Build confidence and competitive spirit</li>
+            <li style="margin-bottom:8px;">Identify strengths and areas of improvement</li>
+            <li>Compete at national level and get recognized</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Subjects ===== -->
+  <section id="subjects">
+    <div class="wrap">
+      <div class="sec-title"><h2>Olympiad Subjects</h2><div class="rule"></div></div>
+      <p class="sec-sub" style="margin-top:-10px;">Questions designed to test conceptual understanding, logical thinking and problem-solving skills.</p>
+      <div class="subject-blocks">
+        <div class="subj-block">
+          <div class="subj-logo math">&Sigma;</div>
+          <div class="subj-content">
+            <h3>Mathematics</h3>
+            <ul>
+              <li>Logical Reasoning</li>
+              <li>Problem Solving</li>
+              <li>Algebra</li>
+              <li>Geometry</li>
+              <li>Number Theory</li>
+              <li>Data Handling</li>
+            </ul>
+            <a href="#pattern">How to Prepare &rarr;</a>
+          </div>
+        </div>
+        <div class="subj-block">
+          <div class="subj-logo sci">&#9879;</div>
+          <div class="subj-content">
+            <h3>Science</h3>
+            <ul>
+              <li>Physics</li>
+              <li>Chemistry</li>
+              <li>Biology</li>
+              <li>Everyday Science</li>
+              <li>Application-Based Questions</li>
+            </ul>
+            <a href="#pattern">How to Prepare &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Eligibility ===== -->
+  <section id="eligibility" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>Eligibility &amp; Class Groups</h2><div class="rule"></div></div>
+      <div class="two-col">
+        <div class="box">
+          <h3 style="font-size:1rem;">Who Can Participate</h3>
+          <p style="font-size:.87rem;color:var(--text);margin-top:8px;">Students from Classes 5 to 12, studying in any recognized school across India, are eligible. Students may register individually or through their school's Olympiad coordinator. There is no minimum academic requirement.</p>
+        </div>
+        <div class="box">
+          <h3 style="font-size:1rem;">Class Groups</h3>
+          <table class="data" style="margin-top:10px;">
+            <thead><tr><th>Group</th><th>Classes</th><th>Level</th></tr></thead>
+            <tbody>
+              <tr><td class="grp">Group 1</td><td>Class 5 – 6</td><td>Foundation</td></tr>
+              <tr><td class="grp">Group 2</td><td>Class 7 – 8</td><td>Intermediate</td></tr>
+              <tr><td class="grp">Group 3</td><td>Class 9 – 10</td><td>Advanced</td></tr>
+              <tr><td class="grp">Group 4</td><td>Class 11 – 12</td><td>Senior</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pattern ===== -->
+  <section id="pattern">
+    <div class="wrap">
+      <div class="sec-title"><h2>Exam Pattern</h2><div class="rule"></div></div>
+      <div class="pattern-strip">
+        <div class="pattern-box"><div class="val">MCQ</div><div class="lbl">Question Type</div></div>
+        <div class="pattern-box"><div class="val">60 Min</div><div class="lbl">Per Subject</div></div>
+        <div class="pattern-box"><div class="val">Offline / Online</div><div class="lbl">Mode</div></div>
+        <div class="pattern-box"><div class="val">English &amp; Hindi</div><div class="lbl">Medium</div></div>
+      </div>
+      <div class="box" style="margin-top:16px;">
+        <p style="margin:0;font-size:.87rem;">Each subject paper is a separate 60-minute, multiple-choice test comprising a curriculum section, a logical reasoning section, and an achievers' section. Exact question count, section-wise weightage and marking scheme for each class group will be published in the official information brochure before registrations open.</p>
+      </div>
+      <div class="zone-grid" style="margin-top:18px;">
+        <div class="u-card">
+          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div class="u-body"><h3>MCQ Based Exam</h3><p>Every paper is conducted in a multiple-choice question format.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-teal"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0012 2z"/></svg></div>
+          <div class="u-body"><h3>Application &amp; Concept Based Questions</h3><p>Papers emphasize applied reasoning over rote recall.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-6 3 4 5-8"/></svg></div>
+          <div class="u-body"><h3>Performance Analysis &amp; Rank Report</h3><p>Every participant gets a detailed report with their national rank.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-red"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+          <div class="u-body"><h3>Safe, Fair &amp; Transparent Examination</h3><p>Standardized, proctored delivery ensures a level playing field.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Highlights / update zone ===== -->
+  <section id="highlights" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>Highlights</h2><div class="rule"></div></div>
+      <div class="zone-grid">
+        <div class="u-card">
+          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 3M17 6h3a3 3 0 01-3 3"/></svg></div>
+          <div class="u-body"><h3>National Level Recognition</h3><p>Performance is benchmarked against students across the country.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></div>
+          <div class="u-body"><h3>Certificate for All Participants</h3><p>Every registered candidate who appears receives an e-certificate.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-red"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5L12 2z"/></svg></div>
+          <div class="u-body"><h3>Exciting Prizes &amp; Awards</h3><p>Top rank holders in every class group receive awards and citations.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-teal"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-6 3 4 5-8"/></svg></div>
+          <div class="u-body"><h3>Individual Performance Report</h3><p>A detailed subject-wise report is issued alongside the result.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0012 2z"/></svg></div>
+          <div class="u-body"><h3>Builds Conceptual Clarity</h3><p>Application-based questions strengthen problem-solving skills.</p></div>
+        </div>
+        <div class="u-card">
+          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12a9 9 0 11-9-9M21 3l-9 9"/></svg></div>
+          <div class="u-body"><h3>Open Nationwide</h3><p>Available to students in every state and union territory of India.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Rewards ===== -->
+  <section id="rewards">
+    <div class="wrap">
+      <div class="sec-title"><h2>Amazing Rewards for Top 3 Ranks</h2><div class="rule"></div></div>
+      <p class="sec-sub" style="margin-top:-10px;">Top 3 All India Rank (AIR) holders in every class group receive the following rewards, in addition to a medal and certificate of excellence.</p>
+      <div class="steps-strip" style="grid-template-columns:repeat(3,1fr);">
+        <div class="step-box" style="padding-top:20px;border-top:4px solid #F0A500;text-align:center;">
+          <div class="u-thumb t-gold" style="border-radius:3px;height:80px;margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="6" y="2" width="12" height="18" rx="2"/><path d="M11 17h2"/></svg></div>
+          <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 1 &nbsp;·&nbsp; GOLD MEDAL</div>
+          <h4 style="margin-top:6px;">Tablet</h4>
+        </div>
+        <div class="step-box" style="padding-top:20px;border-top:4px solid #B7BFC9;text-align:center;">
+          <div class="u-thumb" style="border-radius:3px;height:80px;margin-bottom:14px;background:linear-gradient(135deg,#98A2AE,#5C6672);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="7" y="8" width="10" height="10" rx="2"/><path d="M9 8V5h6v3M9 18v2M15 18v2"/></svg></div>
+          <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 2 &nbsp;·&nbsp; SILVER MEDAL</div>
+          <h4 style="margin-top:6px;">Smart Watch</h4>
+        </div>
+        <div class="step-box" style="padding-top:20px;border-top:4px solid #B4713C;text-align:center;">
+          <div class="u-thumb t-red" style="border-radius:3px;height:80px;margin-bottom:14px;background:linear-gradient(135deg,#B4713C,#7A481F);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 14v-2a8 8 0 0116 0v2M4 14a2 2 0 002 2h1v-6H6a2 2 0 00-2 2v2zm16 0a2 2 0 01-2 2h-1v-6h1a2 2 0 012 2v2z"/></svg></div>
+          <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 3 &nbsp;·&nbsp; BRONZE MEDAL</div>
+          <h4 style="margin-top:6px;">Headphones</h4>
+        </div>
+      </div>
+      <div class="box" style="margin-top:16px;text-align:center;">
+        <p style="margin:0;font-size:.87rem;">Every participant, regardless of rank, also receives a <strong>Certificate of Participation</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Important dates ===== -->
+  <section id="dates">
+    <div class="wrap">
+      <div class="sec-title"><h2>Important Dates</h2><div class="rule"></div></div>
+      <div class="dates-strip">
+        <div class="date-box"><div class="d-tag">To be announced</div><h4>Registration Opens</h4><p>Portal opens for students &amp; coordinators</p></div>
+        <div class="date-box"><div class="d-tag">To be announced</div><h4>Last Date to Register</h4><p>Includes late-fee window</p></div>
+        <div class="date-box"><div class="d-tag">To be announced</div><h4>Admit Card Release</h4><p>Hall ticket / exam link download</p></div>
+        <div class="date-box"><div class="d-tag">To be announced</div><h4>Examination Date</h4><p>As per notified class-group schedule</p></div>
+        <div class="date-box"><div class="d-tag">To be announced</div><h4>Result Declaration</h4><p>Results and e-certificates released</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Fee ===== -->
+  <section id="fee" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>Registration Fee</h2><div class="rule"></div></div>
+      <table class="fee">
+        <thead><tr><th>Category</th><th>Per Subject</th><th>Both Subjects</th></tr></thead>
+        <tbody>
+          <tr><td>Individual Student (Online Mode)</td><td class="amt">₹150</td><td class="amt">₹250</td></tr>
+          <tr><td>Individual Student (Offline / Centre Mode)</td><td class="amt">₹200</td><td class="amt">₹350</td></tr>
+          <tr><td>School Group Registration (per student, 20+)</td><td class="amt">₹120</td><td class="amt">₹200</td></tr>
+        </tbody>
+      </table>
+      <p class="fee-note">* Indicative fee structure. Final fees and payment modes will be confirmed in the official brochure once registration opens.</p>
+    </div>
+  </section>
+
+  <!-- ===== How to register ===== -->
+  <section id="registration">
+    <div class="wrap">
+      <div class="sec-title"><h2>How to Register</h2><div class="rule"></div></div>
+      <div class="steps-strip">
+        <div class="step-box"><div class="num">01</div><h4>Create an Account</h4><p>Sign up with the student's name, class and school details.</p></div>
+        <div class="step-box"><div class="num">02</div><h4>Choose Subjects</h4><p>Select Mathematics, Science, or both, per the class group.</p></div>
+        <div class="step-box"><div class="num">03</div><h4>Complete Payment</h4><p>Pay the registration fee online, or via your school coordinator.</p></div>
+        <div class="step-box"><div class="num">04</div><h4>Download Admit Card</h4><p>Download it from the portal once released, ahead of the exam.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:22px;">
+        <a href="#contact" class="btn btn-red">Notify Me When Registration Opens</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section id="testimonials" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>What People Say</h2><div class="rule"></div></div>
+      <div class="testi-wrap">
+        <div class="testi-grid">
+          <div class="testi">
+            <p class="quote">We appreciate the efforts taken by the organizers to give students a genuine platform to test their abilities. It has clearly boosted their confidence.</p>
+            <div class="who"><div class="avatar">RS</div><div><div class="who-name">Principal, Coordinating School</div><div class="who-role">New Delhi</div></div></div>
+          </div>
+          <div class="testi">
+            <p class="quote">This was our school's first time taking part, and it visibly strengthened students' analytical and problem-solving skills.</p>
+            <div class="who"><div class="avatar">AK</div><div><div class="who-name">Olympiad Coordinator</div><div class="who-role">Bengaluru</div></div></div>
+          </div>
+          <div class="testi">
+            <p class="quote">A well-organized exam that genuinely helps students build the habit of preparing for competitive assessments early.</p>
+            <div class="who"><div class="avatar">MP</div><div><div class="who-name">Class Teacher</div><div class="who-role">Chennai</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-title"><h2>Frequently Asked Questions</h2><div class="rule"></div></div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Who can appear for the National Genius Olympiad?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Any student currently studying in Class 5 to Class 12 in a recognized school in India, regardless of board or medium of instruction.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can a student appear for both Mathematics and Science?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes. Students may register for either subject individually or for both, subject to the applicable combined fee.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is the exam conducted online or offline?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Both modes are available — an online proctored exam from home or school, or an offline exam at a designated centre.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Will there be negative marking?<span class="plus">+</span></button>
+          <div class="faq-a"><p>The exact marking scheme, including whether negative marking applies, will be published in the official brochure before registration opens.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Do schools need to register students in bulk?<span class="plus">+</span></button>
+          <div class="faq-a"><p>No. Students can register individually. Schools that nominate a coordinator and register in bulk pay a reduced per-student fee.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Will every participant receive a certificate?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes — every registered participant who appears for the exam receives a certificate of participation and an individual performance report.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What do the top rank holders win?<span class="plus">+</span></button>
+          <div class="faq-a"><p>The top 3 All India Rank (AIR) holders in every class group win a Tablet (AIR 1, Gold Medal), a Smart Watch (AIR 2, Silver Medal), and Headphones (AIR 3, Bronze Medal), along with a certificate of excellence.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:36px;">
+    <div class="cta-banner">
+      <h2>Be a Part of India's Brightest Minds!</h2>
+      <p>Discover. Develop. Excel. Take the first step towards national-level recognition of your abilities.</p>
+      <a href="#contact" class="btn btn-navy">Get Registration Updates</a>
+    </div>
+  </div>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" style="background:var(--panel);border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-title"><h2>Contact Us</h2><div class="rule"></div></div>
+      <div class="contact-grid">
+        <div class="box">
+          <h3 style="font-size:1rem;">Reach Us</h3>
+          <p style="font-size:.87rem;margin-top:10px;"><strong>National Genius Olympiad</strong><br>Empowering Students Today, Inspiring Leaders Tomorrow.</p>
+          <p style="font-size:.87rem;">Website: www.nationalgeniusolympiad.in<br>Email: info@nationalgeniusolympiad.in<br>Phone: 1800-123-4567 (Toll Free)</p>
+          <p style="font-size:.87rem;">Register through your school, or scan the QR code below / visit our website to register directly.</p>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — this is a demo form. Connect it to your backend or form service to receive submissions.');">
+          <label for="fname">Full name</label>
+          <input id="fname" type="text" placeholder="Student / Parent name" required>
+          <label for="femail">Email address</label>
+          <input id="femail" type="email" placeholder="you@example.com" required>
+          <label for="fclass">Class</label>
+          <select id="fclass">
+            <option>Class 5 – 6</option>
+            <option>Class 7 – 8</option>
+            <option>Class 9 – 10</option>
+            <option>Class 11 – 12</option>
+          </select>
+          <label for="fmsg">Message</label>
+          <textarea id="fmsg" placeholder="Your question or request"></textarea>
+          <button type="submit" class="btn btn-red">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h5>National Genius Olympiad</h5>
+        <p>Empowering Students Today, Inspiring Leaders Tomorrow. A national-level competition in Mathematics and Science for students of Classes 5 to 12, built on Discover · Develop · Excel.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">in</a>
+          <a href="#" aria-label="LinkedIn">ln</a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About the Olympiad</a></li>
+          <li><a href="#subjects">Syllabus</a></li>
+          <li><a href="#eligibility">Eligibility</a></li>
+          <li><a href="#rewards">Rewards</a></li>
+          <li><a href="#dates">Important Dates</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Participation</h5>
+        <ul>
+          <li><a href="#registration">How to Register</a></li>
+          <li><a href="#fee">Registration Fee</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>www.nationalgeniusolympiad.in</li>
+          <li>info@nationalgeniusolympiad.in</li>
+          <li>1800-123-4567 (Toll Free)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Copyright &copy; 2026 National Genius Olympiad. All Rights Reserved.</span>
+      <span><a href="#" style="color:#7E8CA3;">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Manual smooth-scroll for all in-page anchor links.
+  // Some external HTML-hosting platforms intercept/rewrite hash links or
+  // reload the iframe instead of letting the browser jump to the anchor,
+  // so we handle the scrolling ourselves instead of relying on native
+  // href="#id" behaviour.
+  document.querySelectorAll('a[href*="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var href = link.getAttribute('href') || '';
+      var hashIndex = href.indexOf('#');
+      if(hashIndex === -1) return;
+      var id = href.slice(hashIndex + 1);
+      if(!id) return;
+      var target = document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      history.pushState(null, '', '#' + id);
+      // Close the mobile menu after navigating, if open.
+      var nav = document.getElementById('mainNav');
+      if(nav && nav.classList.contains('open')) nav.classList.remove('open');
+    });
+  });
+
+  // If the page loads with a hash already in the URL (e.g. shared link),
+  // scroll to it once content has rendered.
+  window.addEventListener('load', function(){
+    if(location.hash){
+      var target = document.getElementById(location.hash.slice(1));
+      if(target){
+        setTimeout(function(){ target.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);
+      }
+    }
+  });
+
+  function toggleFaq(btn){
+    var item = btn.parentElement;
+    var answer = item.querySelector('.faq-a');
+    var isOpen = item.getAttribute('data-open') === 'true';
+    document.querySelectorAll('.faq-item').forEach(function(el){
+      el.setAttribute('data-open','false');
+      el.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.setAttribute('data-open','true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+</script>
+
+</body>
+</html>
