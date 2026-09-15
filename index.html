@@ -618,20 +618,24 @@
           <p style="font-size:.87rem;">Website: nationalgeniusolympiad.netlify.app<br>Email: nationalgeniusolympiadofficial@gmail.com<br>Phone: +91 9296931417</p>
           <p style="font-size:.87rem;">Register through your school, or scan the QR code below / visit our website to register directly.</p>
         </div>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you — this is a demo form. Connect it to your backend or form service to receive submissions.');">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display:none;">
+            <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+          </p>
           <label for="fname">Full name</label>
-          <input id="fname" type="text" placeholder="Student / Parent name" required>
+          <input id="fname" name="name" type="text" placeholder="Student / Parent name" required>
           <label for="femail">Email address</label>
-          <input id="femail" type="email" placeholder="you@example.com" required>
+          <input id="femail" name="email" type="email" placeholder="you@example.com" required>
           <label for="fclass">Class</label>
-          <select id="fclass">
-            <option>Class 5 – 6</option>
-            <option>Class 7 – 8</option>
-            <option>Class 9 – 10</option>
-            <option>Class 11 – 12</option>
+          <select id="fclass" name="class">
+            <option value="Class 5 – 6">Class 5 – 6</option>
+            <option value="Class 7 – 8">Class 7 – 8</option>
+            <option value="Class 9 – 10">Class 9 – 10</option>
+            <option value="Class 11 – 12">Class 11 – 12</option>
           </select>
           <label for="fmsg">Message</label>
-          <textarea id="fmsg" placeholder="Your question or request"></textarea>
+          <textarea id="fmsg" name="message" placeholder="Your question or request" required></textarea>
           <button type="submit" class="btn btn-red">Send Enquiry</button>
         </form>
       </div>
