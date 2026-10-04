@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Genius Olympiad (NGO) — Official Website</title>
+<title>National Genius Olympiad | National Level Olympiad</title>
 
-<meta name="description" content="National Genius Olympiad — a national-level competition in Mathematics and Science for students of Classes 5 to 12, designed to recognize young minds and empower future leaders.">
+<meta name="description" content="National Genius Olympiad is a national-level competition in Mathematics and Science for students of Classes 5 to 12, designed to recognize young minds and empower future leaders.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nationalgeniusolympiad.netlify.app/">
 
 <!-- Website / Browser Tab Icon -->
 <link rel="icon" type="image/png" href="asset/image/icon.png">
@@ -68,7 +70,7 @@
   .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:16px;flex-wrap:wrap;}
   .brand{display:flex;align-items:center;gap:12px;}
   .brand .seal{width:56px;height:56px;flex:none;}
-  .brand-text .name{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);text-transform:none;}
+  .brand-text .name{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);text-transform:none;margin:0;line-height:1.2;}
   .brand-text .sub{font-size:.72rem;letter-spacing:1.5px;color:var(--red);text-transform:uppercase;font-weight:700;margin-top:1px;}
   .header-cta{display:flex;gap:8px;flex-wrap:wrap;}
   .btn{display:inline-block;padding:10px 16px;border-radius:3px;font-weight:700;text-decoration:none;font-size:.8rem;letter-spacing:.3px;text-transform:uppercase;cursor:pointer;border:none;}
@@ -102,16 +104,17 @@
   .sec-title .rule{flex:1;height:3px;background:var(--red);}
   .sec-sub{color:var(--muted);font-size:.9rem;margin:-14px 0 22px;}
 
-  /* ===== Card grid (Latest Updates style) ===== */
+  /* ===== Card grid (Pattern & Highlights style) ===== */
   .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-  .u-card{background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;transition:box-shadow .15s, transform .15s;}
-  .u-card:hover{box-shadow:0 6px 16px rgba(0,0,0,.14);transform:translateY(-2px);}
-  .u-thumb{height:96px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;}
+  .u-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08);display:flex;flex-direction:column;transition:box-shadow .2s, transform .2s;}
+  .u-card:hover{box-shadow:0 8px 20px rgba(0,0,0,.12);transform:translateY(-3px);}
+  .u-thumb{width:100%;aspect-ratio:16/9;position:relative;background:#14223d;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .u-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .u-card:hover .u-thumb img{transform:scale(1.05);}
   .u-thumb svg{width:40px;height:40px;}
-  .u-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.15));}
   .u-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;}
-  .u-body h3{font-size:.92rem;margin-bottom:6px;text-transform:none;color:var(--navy);}
-  .u-body p{font-size:.82rem;color:var(--muted);margin:0 0 12px;flex:1;}
+  .u-body h3{font-size:.92rem;margin-bottom:6px;text-transform:none;color:var(--navy);line-height:1.3;}
+  .u-body p{font-size:.82rem;color:var(--muted);margin:0 0 10px;flex:1;line-height:1.45;}
   .u-body .readmore{font-size:.76rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.4px;}
   .u-body .readmore:hover{text-decoration:underline;}
 
@@ -122,12 +125,13 @@
 
   /* ===== Subjects (two-olympiad-block style) ===== */
   .subject-blocks{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-  .subj-block{background:var(--panel);border:1px solid var(--line);border-radius:3px;display:grid;grid-template-columns:130px 1fr;box-shadow:0 1px 3px rgba(0,0,0,.08);}
-  .subj-logo{display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.6rem;}
-  .subj-logo.math{background:linear-gradient(160deg,var(--navy),#1B3D6D);}
-  .subj-logo.sci{background:linear-gradient(160deg,#0E7C6B,#0A544A);}
-  .subj-content{padding:16px 18px;}
-  .subj-content h3{font-size:1rem;margin-bottom:6px;}
+  .subj-block{background:var(--panel);border:1px solid var(--line);border-radius:4px;display:grid;grid-template-columns:170px 1fr;box-shadow:0 2px 6px rgba(0,0,0,.07);overflow:hidden;transition:box-shadow .2s, transform .2s;}
+  .subj-block:hover{box-shadow:0 8px 22px rgba(0,0,0,.12);transform:translateY(-2px);}
+  .subj-media{position:relative;width:100%;height:100%;min-height:170px;background:#1B3D6D;overflow:hidden;}
+  .subj-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .subj-block:hover .subj-media img{transform:scale(1.05);}
+  .subj-content{padding:16px 20px;}
+  .subj-content h3{font-size:1.15rem;margin-bottom:6px;color:var(--navy);}
   .subj-content ul{margin:0 0 10px;padding-left:18px;font-size:.83rem;color:var(--text);columns:2;column-gap:14px;}
   .subj-content li{margin-bottom:4px;break-inside:avoid;}
   .subj-content a{font-size:.78rem;font-weight:700;color:var(--red);text-transform:uppercase;}
@@ -183,6 +187,17 @@
   .step-box h4{font-size:.88rem;margin-bottom:4px;}
   .step-box p{font-size:.8rem;color:var(--muted);margin:0;}
 
+  /* ===== Rewards cards ===== */
+  .rewards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .reward-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 16px;box-shadow:0 2px 6px rgba(0,0,0,.07);text-align:center;position:relative;transition:transform .2s, box-shadow .2s;}
+  .reward-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12);}
+  .reward-card.gold{border-top:4px solid #F0A500;}
+  .reward-card.silver{border-top:4px solid #B7BFC9;}
+  .reward-card.bronze{border-top:4px solid #B4713C;}
+  .reward-media{border-radius:3px;width:100%;aspect-ratio:16/9;margin-bottom:14px;background:#F7F7F7;border:1px solid var(--line);overflow:hidden;}
+  .reward-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .reward-card:hover .reward-media img{transform:scale(1.05);}
+
   /* ===== FAQ ===== */
   .faq{background:var(--panel);border:1px solid var(--line);border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
   .faq-item{border-bottom:1px solid var(--line);}
@@ -222,23 +237,67 @@
   .social-row a:hover{background:var(--red);}
   .footer-bottom{padding:14px 0;font-size:.76rem;color:#7E8CA3;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 
+  /* ===== Syllabus Section ===== */
+  .syllabus-card{background:var(--panel);border:1px solid var(--line);border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.08);overflow:hidden;}
+  .syllabus-header{padding:18px 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#FFFFFF,#F7FAFC);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .syllabus-info{display:flex;align-items:center;gap:16px;}
+  .syllabus-pdf-icon{width:46px;height:46px;background:#FDE8E8;color:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;flex:none;border:1px solid rgba(194,31,38,.2);}
+  .syllabus-pdf-icon svg{width:26px;height:26px;}
+  .syllabus-title{font-family:'Roboto Condensed',sans-serif;font-weight:800;font-size:1.15rem;color:var(--navy);margin:0 0 3px;}
+  .syllabus-meta{font-size:.78rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .badge-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px;}
+  .badge-pill.red{background:#FDE8E8;color:var(--red);}
+  .badge-pill.navy{background:#E9EEF6;color:var(--navy);}
+  .badge-pill.green{background:#DEF7EC;color:#03543F;}
+  .syllabus-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .btn-with-icon{display:inline-flex;align-items:center;gap:8px;}
+  .btn-with-icon svg{width:16px;height:16px;flex:none;}
+  .viewer-wrapper{position:relative;background:#1E293B;width:100%;height:72vh;min-height:600px;transition:height .3s ease;}
+  .viewer-wrapper.expanded{height:92vh;min-height:800px;}
+  .viewer-iframe{width:100%;height:100%;border:none;display:block;}
+  .syllabus-footer-bar{padding:12px 22px;background:#F8FAFC;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--muted);}
+  .syllabus-footer-bar a{color:var(--red);font-weight:700;}
+  .syllabus-footer-bar a:hover{text-decoration:underline;}
+  .syllabus-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  .s-hl-box{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:3px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .s-hl-box.accent-red{border-top-color:var(--red);}
+  .s-hl-box.accent-gold{border-top-color:var(--gold);}
+  .s-hl-box.accent-teal{border-top-color:#0E7C6B;}
+  .s-hl-box h4{font-size:.85rem;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;}
+  .s-hl-box h4 .tag{font-size:.68rem;padding:2px 7px;border-radius:3px;background:var(--navy);color:#fff;}
+  .s-hl-box p{margin:0;font-size:.78rem;color:var(--muted);line-height:1.45;}
+
   /* ===== Responsive ===== */
   @media (max-width:980px){
     .card-grid{grid-template-columns:1fr 1fr;}
     .subject-blocks,.two-col,.contact-grid{grid-template-columns:1fr;}
-    .stats-grid,.pattern-strip,.steps-strip{grid-template-columns:1fr 1fr;}
-    .dates-strip,.zone-grid,.testi-grid{grid-template-columns:1fr;}
+    .subj-block{grid-template-columns:170px 1fr;}
+    .stats-grid,.pattern-strip,.steps-strip,.syllabus-highlights{grid-template-columns:1fr 1fr;}
+    .dates-strip,.testi-grid{grid-template-columns:1fr;}
+    .zone-grid{grid-template-columns:1fr 1fr;}
+    .rewards-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
     .date-box,.testi{border-right:none;border-bottom:1px solid var(--line);}
     nav.main-nav .wrap{display:none;flex-direction:column;}
     nav.main-nav.open .wrap{display:flex;}
     .menu-btn{display:block;}
     .footer-grid{grid-template-columns:1fr 1fr;}
+    .syllabus-header{flex-direction:column;align-items:flex-start;}
+    .syllabus-actions{width:100%;}
+    .viewer-wrapper{height:60vh;min-height:500px;}
+  }
+  @media (max-width:768px){
+    .rewards-grid{grid-template-columns:1fr;}
   }
   @media (max-width:600px){
-    .card-grid,.stats-grid,.pattern-strip,.steps-strip,.footer-grid{grid-template-columns:1fr;}
+    .card-grid,.stats-grid,.pattern-strip,.steps-strip,.footer-grid,.syllabus-highlights,.zone-grid{grid-template-columns:1fr;}
     .subj-block{grid-template-columns:1fr;}
-    .subj-logo{padding:14px 0;}
+    .subj-media{aspect-ratio:16/9;min-height:auto;height:auto;}
     .header-inner{flex-direction:column;align-items:flex-start;}
+    .syllabus-info{flex-direction:column;align-items:flex-start;gap:10px;}
+    .syllabus-actions{flex-direction:column;width:100%;}
+    .syllabus-actions .btn{width:100%;justify-content:center;}
+    .viewer-wrapper{height:52vh;min-height:420px;}
+    .syllabus-footer-bar{flex-direction:column;align-items:flex-start;}
   }
 </style>
 </head>
@@ -253,11 +312,15 @@
     <div class="brand">
       <img class="seal" src="asset/image/icon.png" alt="National Genius Olympiad Logo" >
       <div class="brand-text">
-        <div class="name">National Genius Olympiad</div>
+        <h1 class="name">National Genius Olympiad</h1>
         <div class="sub">Think · Solve · Succeed</div>
       </div>
     </div>
     <div class="header-cta">
+      <a href="#syllabus" class="btn btn-navy btn-with-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Syllabus
+      </a>
       <a href="#contact" class="btn btn-outline">Register Your School</a>
     </div>
   </div>
@@ -267,8 +330,8 @@
   <button class="menu-btn" onclick="document.getElementById('mainNav').classList.toggle('open')">&#9776; Menu</button>
   <div class="wrap">
     <a href="#about">About NGO</a>
-    <a href="#subjects">Mathematics</a>
-    <a href="#subjects">Science</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#syllabus">Syllabus</a>
     <a href="#eligibility">Eligibility</a>
     <a href="#pattern">Exam Pattern</a>
     <a href="#rewards">Rewards</a>
@@ -340,7 +403,9 @@
       <p class="sec-sub" style="margin-top:-10px;">Questions designed to test conceptual understanding, logical thinking and problem-solving skills.</p>
       <div class="subject-blocks">
         <div class="subj-block">
-          <div class="subj-logo math">&Sigma;</div>
+          <div class="subj-media">
+            <img src="asset/image/Mathematics.png" alt="Mathematics Olympiad Subject" loading="lazy">
+          </div>
           <div class="subj-content">
             <h3>Mathematics</h3>
             <ul>
@@ -351,11 +416,16 @@
               <li>Number Theory</li>
               <li>Data Handling</li>
             </ul>
-            <a href="#pattern">How to Prepare &rarr;</a>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+              <a href="#syllabus" style="font-size:.78rem;font-weight:700;color:var(--red);text-transform:uppercase;">View Syllabus &rarr;</a>
+              <a href="#pattern" style="font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Exam Pattern &rarr;</a>
+            </div>
           </div>
         </div>
         <div class="subj-block">
-          <div class="subj-logo sci">&#9879;</div>
+          <div class="subj-media">
+            <img src="asset/image/Science.png" alt="Science Olympiad Subject" loading="lazy">
+          </div>
           <div class="subj-content">
             <h3>Science</h3>
             <ul>
@@ -365,7 +435,123 @@
               <li>Everyday Science</li>
               <li>Application-Based Questions</li>
             </ul>
-            <a href="#pattern">How to Prepare &rarr;</a>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+              <a href="#syllabus" style="font-size:.78rem;font-weight:700;color:var(--red);text-transform:uppercase;">View Syllabus &rarr;</a>
+              <a href="#pattern" style="font-size:.78rem;font-weight:700;color:var(--navy);text-transform:uppercase;">Exam Pattern &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Syllabus Section ===== -->
+  <section id="syllabus">
+    <div class="wrap">
+      <div class="sec-title"><h2>Official Olympiad Syllabus</h2><div class="rule"></div></div>
+      <p class="sec-sub" style="margin-top:-10px;">Official 89-page syllabus framework for Classes 5 to 12 in Mathematics and Science. School-aligned, concept-oriented, and designed for rigorous competitive problem-solving.</p>
+
+      <!-- Quick Group Highlights -->
+      <div class="syllabus-highlights">
+        <div class="s-hl-box">
+          <h4><span>Classes 5 – 6</span> <span class="tag">Group 1</span></h4>
+          <p>Foundational Mathematics &amp; General Science. Number sense, basic geometry, living world, matter, and logical reasoning.</p>
+        </div>
+        <div class="s-hl-box accent-red">
+          <h4><span>Classes 7 – 8</span> <span class="tag">Group 2</span></h4>
+          <p>Intermediate algebra, geometry, ratios, integers, physics foundations, chemical changes, cells &amp; environmental science.</p>
+        </div>
+        <div class="s-hl-box accent-gold">
+          <h4><span>Classes 9 – 10</span> <span class="tag">Group 3</span></h4>
+          <p>Advanced mathematics, coordinate geometry, trigonometry, motion, gravitation, chemical reactions, life processes &amp; genetics.</p>
+        </div>
+        <div class="s-hl-box accent-teal">
+          <h4><span>Classes 11 – 12</span> <span class="tag">Group 4</span></h4>
+          <p>Senior calculus, vectors, electrostatics, thermodynamics, organic chemistry, modern biology &amp; higher problem solving.</p>
+        </div>
+      </div>
+
+      <!-- Main Syllabus Card with Viewer and Actions -->
+      <div class="syllabus-card">
+        <div class="syllabus-header">
+          <div class="syllabus-info">
+            <div class="syllabus-pdf-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="syllabus-title">National Genius Olympiad — Official Syllabus (Classes 5 to 12)</div>
+              <div class="syllabus-meta">
+                <span><strong>Document:</strong> Official Syllabus PDF (89 Pages)</span>
+                <span>•</span>
+                <span><strong>Size:</strong> ~1.3 MB</span>
+                <span>•</span>
+                <span class="badge-pill red">Official Release</span>
+                <span class="badge-pill green">CBSE / ICSE / State</span>
+              </div>
+            </div>
+          </div>
+          <div class="syllabus-actions">
+            <!-- Direct Download Button -->
+            <a href="asset/syllabus.pdf" download="National_Genius_Olympiad_Official_Syllabus_Classes_5_to_12.pdf" class="btn btn-red btn-with-icon" id="btnDownloadSyllabus" title="Download the full Syllabus PDF">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Syllabus (PDF)</span>
+            </a>
+            <!-- Open in Google Drive Link -->
+            <a href="https://drive.google.com/file/d/1sf-Mg3o6UbyOMGv_4EZTNq02Qh8mhzRw/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-navy btn-with-icon" id="btnOpenDriveLink" title="Open syllabus in Google Drive in new tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>Open in Google Drive</span>
+            </a>
+            <!-- Expand Viewer Toggle -->
+            <button type="button" class="btn btn-outline btn-with-icon" id="btnExpandViewer" onclick="toggleViewerFullscreen()" title="Toggle enlarged view of the document reader">
+              <svg id="fullscreenIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+              <span id="expandText">Expand View</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Embedded Document Viewer -->
+        <div class="viewer-wrapper" id="syllabusViewerWrapper">
+          <iframe 
+            id="syllabusFrame"
+            class="viewer-iframe" 
+            src="https://drive.google.com/file/d/1sf-Mg3o6UbyOMGv_4EZTNq02Qh8mhzRw/preview" 
+            title="National Genius Olympiad Official Syllabus Preview"
+            loading="lazy"
+            allow="autoplay">
+          </iframe>
+        </div>
+
+        <!-- Document Footer Bar -->
+        <div class="syllabus-footer-bar">
+          <div>
+            <span>Viewing live preview. You can scroll through all 89 pages, zoom, or print directly inside the reader above.</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+            <span>Need alternate access?</span>
+            <a href="https://drive.google.com/file/d/1sf-Mg3o6UbyOMGv_4EZTNq02Qh8mhzRw/view?usp=sharing" target="_blank" rel="noopener noreferrer">View on Google Drive &rarr;</a>
+            <span>|</span>
+            <a href="https://drive.google.com/uc?export=download&id=1sf-Mg3o6UbyOMGv_4EZTNq02Qh8mhzRw" target="_blank" rel="noopener noreferrer">Google Drive Download &rarr;</a>
+            <span>|</span>
+            <a href="asset/syllabus.pdf" download="National_Genius_Olympiad_Official_Syllabus_Classes_5_to_12.pdf">Direct PDF File &rarr;</a>
           </div>
         </div>
       </div>
@@ -383,15 +569,17 @@
         </div>
         <div class="box">
           <h3 style="font-size:1rem;">Class Groups</h3>
-          <table class="data" style="margin-top:10px;">
-            <thead><tr><th>Group</th><th>Classes</th><th>Level</th></tr></thead>
-            <tbody>
-              <tr><td class="grp">Group 1</td><td>Class 5 – 6</td><td>Foundation</td></tr>
-              <tr><td class="grp">Group 2</td><td>Class 7 – 8</td><td>Intermediate</td></tr>
-              <tr><td class="grp">Group 3</td><td>Class 9 – 10</td><td>Advanced</td></tr>
-              <tr><td class="grp">Group 4</td><td>Class 11 – 12</td><td>Senior</td></tr>
-            </tbody>
-          </table>
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+            <table class="data" style="margin-top:10px;">
+              <thead><tr><th>Group</th><th>Classes</th><th>Level</th></tr></thead>
+              <tbody>
+                <tr><td class="grp">Group 1</td><td>Class 5 – 6</td><td>Foundation</td></tr>
+                <tr><td class="grp">Group 2</td><td>Class 7 – 8</td><td>Intermediate</td></tr>
+                <tr><td class="grp">Group 3</td><td>Class 9 – 10</td><td>Advanced</td></tr>
+                <tr><td class="grp">Group 4</td><td>Class 11 – 12</td><td>Senior</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -410,21 +598,21 @@
       <div class="box" style="margin-top:16px;">
         <p style="margin:0;font-size:.87rem;">Each subject paper is a separate 60-minute, multiple-choice test comprising a curriculum section, a logical reasoning section, and an achievers' section. Exact question count, section-wise weightage and marking scheme for each class group will be published in the official information brochure before registrations open.</p>
       </div>
-      <div class="zone-grid" style="margin-top:18px;">
+      <div class="card-grid" style="margin-top:18px;">
         <div class="u-card">
-          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/MCQ Based Exam.png" alt="MCQ Based Exam" loading="lazy"></div>
           <div class="u-body"><h3>MCQ Based Exam</h3><p>Every paper is conducted in a multiple-choice question format.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-teal"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0012 2z"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Application & Concept Based Questions.png" alt="Application & Concept Based Questions" loading="lazy"></div>
           <div class="u-body"><h3>Application &amp; Concept Based Questions</h3><p>Papers emphasize applied reasoning over rote recall.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-6 3 4 5-8"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Performance Analysis & Rank Report.png" alt="Performance Analysis & Rank Report" loading="lazy"></div>
           <div class="u-body"><h3>Performance Analysis &amp; Rank Report</h3><p>Every participant gets a detailed report with their national rank.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-red"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Safe, Fair & Transparent Examination.png" alt="Safe, Fair & Transparent Examination" loading="lazy"></div>
           <div class="u-body"><h3>Safe, Fair &amp; Transparent Examination</h3><p>Standardized, proctored delivery ensures a level playing field.</p></div>
         </div>
       </div>
@@ -437,27 +625,27 @@
       <div class="sec-title"><h2>Highlights</h2><div class="rule"></div></div>
       <div class="zone-grid">
         <div class="u-card">
-          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 3M17 6h3a3 3 0 01-3 3"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/National Level Recognition.png" alt="National Level Recognition" loading="lazy"></div>
           <div class="u-body"><h3>National Level Recognition</h3><p>Performance is benchmarked against students across the country.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Certificate for All Participants.png" alt="Certificate for All Participants" loading="lazy"></div>
           <div class="u-body"><h3>Certificate for All Participants</h3><p>Every registered candidate who appears receives an e-certificate.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-red"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 9l-5 4.5 1.5 7L12 17l-5.5 3.5L8 13.5 3 9l6.5-.5L12 2z"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Exciting Prizes & Awards.png" alt="Exciting Prizes & Awards" loading="lazy"></div>
           <div class="u-body"><h3>Exciting Prizes &amp; Awards</h3><p>Top rank holders in every class group receive awards and citations.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-teal"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 3v18h18M7 15l4-6 3 4 5-8"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Individual Performance Report.png" alt="Individual Performance Report" loading="lazy"></div>
           <div class="u-body"><h3>Individual Performance Report</h3><p>A detailed subject-wise report is issued alongside the result.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-gold"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0012 2z"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Builds Conceptual Clarity.png" alt="Builds Conceptual Clarity" loading="lazy"></div>
           <div class="u-body"><h3>Builds Conceptual Clarity</h3><p>Application-based questions strengthen problem-solving skills.</p></div>
         </div>
         <div class="u-card">
-          <div class="u-thumb t-blue"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M21 12a9 9 0 11-9-9M21 3l-9 9"/></svg></div>
+          <div class="u-thumb"><img src="asset/image/Open Nationwide.png" alt="Open Nationwide" loading="lazy"></div>
           <div class="u-body"><h3>Open Nationwide</h3><p>Available to students in every state and union territory of India.</p></div>
         </div>
       </div>
@@ -469,27 +657,27 @@
     <div class="wrap">
       <div class="sec-title"><h2>Amazing Rewards for Top 3 Ranks</h2><div class="rule"></div></div>
       <p class="sec-sub" style="margin-top:-10px;">Top 3 All India Rank (AIR) holders in every class group receive the following rewards, in addition to a medal and certificate of excellence.</p>
-      <div class="steps-strip" style="grid-template-columns:repeat(3,1fr);">
-        <div class="step-box" style="padding-top:20px;border-top:4px solid #F0A500;text-align:center;">
-          <div style="border-radius:3px;height:140px;margin-bottom:14px;background:#F7F7F7;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <img src="https://raw.githubusercontent.com/Raj-pro/National-Genius-Olympiad/main/asset/image/tab.png" alt="Tablet — AIR 1 prize" style="width:100%;height:100%;object-fit:cover;">
+      <div class="rewards-grid">
+        <div class="reward-card gold">
+          <div class="reward-media">
+            <img src="asset/image/tab.png" alt="Tablet — All India Rank 1 Prize" loading="lazy">
           </div>
           <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 1 &nbsp;·&nbsp; GOLD MEDAL</div>
-          <h4 style="margin-top:6px;">Tablet</h4>
+          <h4 style="margin-top:6px;font-size:1.05rem;">Tablet</h4>
         </div>
-        <div class="step-box" style="padding-top:20px;border-top:4px solid #B7BFC9;text-align:center;">
-          <div style="border-radius:3px;height:140px;margin-bottom:14px;background:#F7F7F7;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <img src="https://raw.githubusercontent.com/Raj-pro/National-Genius-Olympiad/main/asset/image/Smart%20Watch.png" alt="Smart Watch — AIR 2 prize" style="width:100%;height:100%;object-fit:cover;">
+        <div class="reward-card silver">
+          <div class="reward-media">
+            <img src="asset/image/Smart Watch.png" alt="Smart Watch — All India Rank 2 Prize" loading="lazy">
           </div>
           <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 2 &nbsp;·&nbsp; SILVER MEDAL</div>
-          <h4 style="margin-top:6px;">Smart Watch</h4>
+          <h4 style="margin-top:6px;font-size:1.05rem;">Smart Watch</h4>
         </div>
-        <div class="step-box" style="padding-top:20px;border-top:4px solid #B4713C;text-align:center;">
-          <div style="border-radius:3px;height:140px;margin-bottom:14px;background:#F7F7F7;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <img src="https://raw.githubusercontent.com/Raj-pro/National-Genius-Olympiad/main/asset/image/Headphones.png" alt="Headphones — AIR 3 prize" style="width:100%;height:100%;object-fit:cover;">
+        <div class="reward-card bronze">
+          <div class="reward-media">
+            <img src="asset/image/Headphones.png" alt="Headphones — All India Rank 3 Prize" loading="lazy">
           </div>
           <div style="font-family:'Roboto Condensed',sans-serif;font-weight:800;color:var(--navy);font-size:.85rem;letter-spacing:.5px;">AIR 3 &nbsp;·&nbsp; BRONZE MEDAL</div>
-          <h4 style="margin-top:6px;">Headphones</h4>
+          <h4 style="margin-top:6px;font-size:1.05rem;">Headphones</h4>
         </div>
       </div>
       <div class="box" style="margin-top:16px;text-align:center;">
@@ -516,12 +704,14 @@
   <section id="fee" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="wrap">
       <div class="sec-title"><h2>Registration Fee</h2><div class="rule"></div></div>
-      <table class="fee">
-        <thead><tr><th>Category</th><th>Single Subject</th><th>Both Subjects</th></tr></thead>
-        <tbody>
-          <tr><td>Individual Student (Offline / Centre Mode)</td><td class="amt">₹200</td><td class="amt">₹350</td></tr>
-        </tbody>
-      </table>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+        <table class="fee">
+          <thead><tr><th>Category</th><th>Single Subject</th><th>Both Subjects</th></tr></thead>
+          <tbody>
+            <tr><td>Individual Student (Offline / Centre Mode)</td><td class="amt">₹200</td><td class="amt">₹350</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="fee-note">* Registration is offline (centre mode) only. Final payment modes and centre details will be confirmed in the official brochure once registration opens.</p>
     </div>
   </section>
@@ -595,6 +785,10 @@
           <div class="faq-a"><p>Yes — every registered participant who appears for the exam receives a certificate of participation and an individual performance report.</p></div>
         </div>
         <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Where can I get the syllabus and curriculum details?<span class="plus">+</span></button>
+          <div class="faq-a"><p>The complete 89-page official syllabus for Classes 5 to 12 in Mathematics and Science is available directly on our website. You can view it live in the interactive viewer or download the official PDF from the <a href="#syllabus" style="color:var(--red);font-weight:700;">Syllabus section</a> or view it on <a href="https://drive.google.com/file/d/1sf-Mg3o6UbyOMGv_4EZTNq02Qh8mhzRw/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--navy);font-weight:700;">Google Drive</a>.</p></div>
+        </div>
+        <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">What do the top rank holders win?<span class="plus">+</span></button>
           <div class="faq-a"><p>The top 3 All India Rank (AIR) holders in every class group win a Tablet (AIR 1, Gold Medal), a Smart Watch (AIR 2, Silver Medal), and Headphones (AIR 3, Bronze Medal), along with a certificate of excellence.</p></div>
         </div>
@@ -661,7 +855,7 @@
         <h5>Quick Links</h5>
         <ul>
           <li><a href="#about">About the Olympiad</a></li>
-          <li><a href="#subjects">Syllabus</a></li>
+          <li><a href="#syllabus">Official Syllabus (PDF)</a></li>
           <li><a href="#eligibility">Eligibility</a></li>
           <li><a href="#rewards">Rewards</a></li>
           <li><a href="#dates">Important Dates</a></li>
@@ -738,6 +932,19 @@
     if(!isOpen){
       item.setAttribute('data-open','true');
       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  function toggleViewerFullscreen(){
+    var wrapper = document.getElementById('syllabusViewerWrapper');
+    var btnText = document.getElementById('expandText');
+    if(!wrapper) return;
+    var isExpanded = wrapper.classList.toggle('expanded');
+    if(btnText){
+      btnText.textContent = isExpanded ? 'Collapse View' : 'Expand View';
+    }
+    if(isExpanded){
+      wrapper.scrollIntoView({behavior:'smooth', block:'center'});
     }
   }
 </script>
